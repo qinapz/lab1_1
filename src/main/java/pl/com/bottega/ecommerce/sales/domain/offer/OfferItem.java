@@ -20,6 +20,10 @@ public class OfferItem {
     // product
     public Product product;
 
+    public int quantity;
+
+    public BigDecimal totalCost;
+
     // discount
     public Discount discount;
 
@@ -37,7 +41,7 @@ public class OfferItem {
             discountValue = discountValue.subtract(discount.discount);
         }
 
-        product.totalCost = product.productPrice.multiply(new BigDecimal(product.quantity)).subtract(discountValue);
+        totalCost = product.productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
     }
 
     /*
