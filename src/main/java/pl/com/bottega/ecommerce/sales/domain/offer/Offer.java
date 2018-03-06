@@ -67,7 +67,7 @@ public class Offer {
         }
 
         for (OfferItem item : availableItems) {
-            OfferItem sameItem = seenOffer.findItem(item.getProductId());
+            OfferItem sameItem = seenOffer.findItem(item.getProductId());   //chain - discussable
             if (sameItem == null) {
                 return false;
             }
@@ -89,3 +89,7 @@ public class Offer {
     }
 
 }
+
+
+//offer item - has product which has price (money), offer item has total value ( money) and includes discount (value in money)
+//Money has currency and value

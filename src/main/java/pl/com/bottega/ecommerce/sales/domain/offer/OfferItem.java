@@ -17,7 +17,7 @@ import java.util.Date;
 
 public class OfferItem {
 
-    // product
+    // product - availible to be completely different structure - not everything within one class
     private String productId;
 
     private BigDecimal productPrice;
@@ -34,7 +34,7 @@ public class OfferItem {
 
     private String currency;
 
-    // discount
+    // discount - same as above
     private String discountCause;
 
     private BigDecimal discount;
@@ -181,6 +181,8 @@ public class OfferItem {
      *            acceptable percentage difference
      * @return
      */
+
+    //returns something and changes fields simultaneous - maybe change to object
     public boolean sameAs(OfferItem other, double delta) {
         if (productName == null) {
             if (other.productName != null) {
