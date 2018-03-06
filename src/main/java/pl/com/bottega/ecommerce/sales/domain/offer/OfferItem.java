@@ -18,50 +18,26 @@ import java.util.Date;
 public class OfferItem {
 
     // product
-    public String productId;
-
-    public BigDecimal productPrice;
-
-    public String productName;
-
-    public Date productSnapshotDate;
-
-    public String productType;
-
-    public int quantity;
-
-    public BigDecimal totalCost;
-
-    public String currency;
+    public Product product;
 
     // discount
-    public String discountCause;
+    public Discount discount;
 
-    public BigDecimal discount;
-
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
-            String productType, int quantity) {
-        this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
+    public OfferItem(Product product) {
+        this.product = product;
     }
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
-            String productType, int quantity, BigDecimal discount, String discountCause) {
-        this.productId = productId;
-        this.productPrice = productPrice;
-        this.productName = productName;
-        this.productSnapshotDate = productSnapshotDate;
-        this.productType = productType;
+    public OfferItem(Product product, Discount discount) {
+        this.product = product;
 
-        this.quantity = quantity;
         this.discount = discount;
-        this.discountCause = discountCause;
 
         BigDecimal discountValue = new BigDecimal(0);
         if (discount != null) {
-            discountValue = discountValue.subtract(discount);
+            discountValue = discountValue.subtract(discount.discount);
         }
 
-        this.totalCost = productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
+        product.totalCost = product.productPrice.multiply(new BigDecimal(product.quantity)).subtract(discountValue);
     }
 
     /*
