@@ -38,14 +38,16 @@ public class Offer {
         if (obj == null) {
             return false;
         }
+		
         if (getClass() != obj.getClass()) {
             return false;
         }
+		
         Offer other = (Offer) obj;
         if (availableItems == null) {
-            if (other.availableItems != null) {
+            if (other.availableItems != null) 
                 return false;
-            }
+            
         } else if (!availableItems.equals(other.availableItems)) {
             return false;
         }
