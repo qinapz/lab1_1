@@ -65,7 +65,7 @@ public class Offer {
         }
 
         for (OfferItem item : availableItems) {
-            OfferItem sameItem = seenOffer.findItem(item.productId());
+            OfferItem sameItem = seenOffer.findItem(item.product.productId);
             if (sameItem == null) {
                 return false;
             }

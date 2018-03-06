@@ -11,5 +11,4 @@ public class Product{
     public String productType;
     public int quantity;
     public BigDecimal totalCost;
-    public String currency;
 }
