@@ -18,26 +18,26 @@ import java.util.Date;
 public class OfferItem {
 
     // product
-    private String productId;
+    public String productId;
 
-    private BigDecimal productPrice;
+    public BigDecimal productPrice;
 
-    private String productName;
+    public String productName;
 
-    private Date productSnapshotDate;
+    public Date productSnapshotDate;
 
-    private String productType;
+    public String productType;
 
-    private int quantity;
+    public int quantity;
 
-    private BigDecimal totalCost;
+    public BigDecimal totalCost;
 
-    private String currency;
+    public String currency;
 
     // discount
-    private String discountCause;
+    public String discountCause;
 
-    private BigDecimal discount;
+    public BigDecimal discount;
 
     public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
             String productType, int quantity) {
@@ -64,6 +64,7 @@ public class OfferItem {
         this.totalCost = productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
     }
 
+    /*
     public String getProductId() {
         return productId;
     }
@@ -103,6 +104,7 @@ public class OfferItem {
     public int getQuantity() {
         return quantity;
     }
+    */
 
     @Override
     public int hashCode() {
