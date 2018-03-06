@@ -18,15 +18,7 @@ import java.util.Date;
 public class OfferItem {
 
     // product
-    private String productId;
-
-    private BigDecimal productPrice;
-
-    private String productName;
-
-    private Date productSnapshotDate;
-
-    private String productType;
+    Product product;
 
     private int quantity;
 
@@ -46,11 +38,7 @@ public class OfferItem {
 
     public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
             String productType, int quantity, BigDecimal discount, String discountCause) {
-        this.productId = productId;
-        this.productPrice = productPrice;
-        this.productName = productName;
-        this.productSnapshotDate = productSnapshotDate;
-        this.productType = productType;
+        this.product = new Product(productId, productPrice, productName, productSnapshotDate, productType);
 
         this.quantity = quantity;
         this.discount = discount;
@@ -65,23 +53,25 @@ public class OfferItem {
     }
 
     public String getProductId() {
-        return productId;
+        return product.getProductId();
     }
 
     public BigDecimal getProductPrice() {
-        return productPrice;
+        return product.getProductPrice();
     }
+    
+  
 
     public String getProductName() {
-        return productName;
+        return product.getProductName();
     }
 
     public Date getProductSnapshotDate() {
-        return productSnapshotDate;
+        return product.getProductSnapshotDate();
     }
 
     public String getProductType() {
-        return productType;
+        return product.getProductType();
     }
 
     public BigDecimal getTotalCost() {
@@ -109,10 +99,7 @@ public class OfferItem {
         final int prime = 31;
         int result = 1;
         result = prime * result + (discount == null ? 0 : discount.hashCode());
-        result = prime * result + (productName == null ? 0 : productName.hashCode());
-        result = prime * result + (productPrice == null ? 0 : productPrice.hashCode());
-        result = prime * result + (productId == null ? 0 : productId.hashCode());
-        result = prime * result + (productType == null ? 0 : productType.hashCode());
+        result = prime * result + (product == null ? 0 : product.hashCode());
         result = prime * result + quantity;
         result = prime * result + (totalCost == null ? 0 : totalCost.hashCode());
         return result;
