@@ -18,6 +18,8 @@ import java.util.Date;
 public class OfferItem {
     public Product product;
     public Discount discount;
+    public int quantity;
+    public BigDecimal totalCost;
 
     public OfferItem(Product product) {
         this.product = product;
@@ -145,7 +147,7 @@ public class OfferItem {
         BigDecimal max;
         BigDecimal min;
         if (product.totalCost.compareTo(other.product.totalCost) > 0) {
-            max = product.totalCost;
+            max = product.tot alCost;
             min = other.product.totalCost;
         } else {
             max = other.product.totalCost;

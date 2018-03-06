@@ -9,6 +9,4 @@ public class Product{
     public String productName;
     public Date productSnapshotDate;
     public String productType;
-    public int quantity;
-    public BigDecimal totalCost;
 }
