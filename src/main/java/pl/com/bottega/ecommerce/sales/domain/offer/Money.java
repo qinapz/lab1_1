@@ -13,6 +13,24 @@ public class Money {
         this.currency = currency;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Money money = (Money) o;
+
+        if (value != null ? !value.equals(money.value) : money.value != null) return false;
+        return currency != null ? currency.equals(money.currency) : money.currency == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = value != null ? value.hashCode() : 0;
+        result = 31 * result + (currency != null ? currency.hashCode() : 0);
+        return result;
+    }
+
     public BigDecimal getValue() {
         return value;
     }

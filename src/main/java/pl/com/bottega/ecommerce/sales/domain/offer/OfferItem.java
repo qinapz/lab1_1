@@ -52,106 +52,36 @@ public class OfferItem {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (discount == null ? 0 : discount.hashCode());
-        result = prime * result + (product.getProductName() == null ? 0 : product.getProductName().hashCode());
-        result = prime * result + (product.getProductPrice() == null ? 0 : product.getProductPrice().hashCode());
-        result = prime * result + (product.getProductId() == null ? 0 : product.getProductId().hashCode());
-        result = prime * result + (product.getProductType() == null ? 0 : product.getProductType().hashCode());
-        result = prime * result + quantity;
-        result = prime * result + (totalCost.getValue() == null ? 0 : totalCost.getValue().hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        OfferItem offerItem = (OfferItem) o;
+
+        if (quantity != offerItem.quantity) return false;
+        if (product != null ? !product.equals(offerItem.product) : offerItem.product != null) return false;
+        if (discount != null ? !discount.equals(offerItem.discount) : offerItem.discount != null) return false;
+        return totalCost != null ? totalCost.equals(offerItem.totalCost) : offerItem.totalCost == null;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        OfferItem other = (OfferItem) obj;
-        if (discount == null) {
-            if (other.discount != null) {
-                return false;
-            }
-        } else if (!discount.equals(other.discount)) {
-            return false;
-        }
-        if (product.getProductName() == null) {
-            if (other.product.getProductName() != null) {
-                return false;
-            }
-        } else if (!product.getProductName().equals(other.product.getProductName())) {
-            return false;
-        }
-        if (product.getProductPrice() == null) {
-            if (other.product.getProductPrice() != null) {
-                return false;
-            }
-        } else if (!product.getProductPrice().equals(other.product.getProductPrice())) {
-            return false;
-        }
-        if (product.getProductId() == null) {
-            if (other.product.getProductId() != null) {
-                return false;
-            }
-        } else if (!product.getProductId().equals(other.product.getProductId())) {
-            return false;
-        }
-        if (product.getProductType() != other.product.getProductType()) {
-            return false;
-        }
-        if (quantity != other.quantity) {
-            return false;
-        }
-        if (totalCost.getValue() == null) {
-            if (other.totalCost.getValue() != null) {
-                return false;
-            }
-        } else if (!totalCost.getValue().equals(other.totalCost.getValue())) {
-            return false;
-        }
-        return true;
+    public int hashCode() {
+        int result = product != null ? product.hashCode() : 0;
+        result = 31 * result + quantity;
+        result = 31 * result + (discount != null ? discount.hashCode() : 0);
+        result = 31 * result + (totalCost != null ? totalCost.hashCode() : 0);
+        return result;
     }
 
-    /*
-    * *
+    /**
      *
-     * @param item
+     * @param other
      * @param delta
      *            acceptable percentage difference
      * @return
      */
     public boolean sameAs(OfferItem other, double delta) {
-        if (product.getProductName() == null) {
-            if (other.product.getProductName() != null) {
-                return false;
-            }
-        } else if (!product.getProductName().equals(other.product.getProductName())) {
-            return false;
-        }
-        if (product.getProductPrice() == null) {
-            if (other.product.getProductPrice() != null) {
-                return false;
-            }
-        } else if (!product.getProductPrice().equals(other.product.getProductPrice())) {
-            return false;
-        }
-        if (product.getProductId() == null) {
-            if (other.product.getProductId() != null) {
-                return false;
-            }
-        } else if (!product.getProductId().equals(other.product.getProductId())) {
-            return false;
-        }
-        if (product.getProductType() != other.product.getProductType()) {
+        if(!this.product.equals(other.product)) {
             return false;
         }
 
