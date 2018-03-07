@@ -33,9 +33,9 @@ public class OfferItem {
         this.quantity = quantity;
         this.discount = discount;
 
-        BigDecimal discountValue = discount != null ? discount.getDiscountValue().getValue():new BigDecimal(0);
+        BigDecimal discountValue = discount != null ? discount.getValue().getValue():new BigDecimal(0);
 
-        this.totalCost.setValue(product.getProductPrice().multiply(new BigDecimal(quantity)).subtract(discountValue));
+        this.totalCost.setValue(product.getPrice().multiply(new BigDecimal(quantity)).subtract(discountValue));
     }
 
 
@@ -49,6 +49,30 @@ public class OfferItem {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Discount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
+
+    public void setTotalCost(Money totalCost) {
+        this.totalCost = totalCost;
     }
 
     @Override

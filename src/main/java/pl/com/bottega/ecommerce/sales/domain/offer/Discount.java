@@ -1,13 +1,13 @@
 package pl.com.bottega.ecommerce.sales.domain.offer;
 
 public class Discount {
-    private String discountCause;
+    private String cause;
 
-    private Money discountValue;
+    private Money value;
 
-    public Discount(String discountCause, Money discountValue) {
-        this.discountCause = discountCause;
-        this.discountValue = discountValue;
+    public Discount(String cause, Money value) {
+        this.cause = cause;
+        this.value = value;
     }
 
     @Override
@@ -17,31 +17,31 @@ public class Discount {
 
         Discount discount = (Discount) o;
 
-        if (discountCause != null ? !discountCause.equals(discount.discountCause) : discount.discountCause != null)
+        if (cause != null ? !cause.equals(discount.cause) : discount.cause != null)
             return false;
-        return discountValue != null ? discountValue.equals(discount.discountValue) : discount.discountValue == null;
+        return value != null ? value.equals(discount.value) : discount.value == null;
     }
 
     @Override
     public int hashCode() {
-        int result = discountCause != null ? discountCause.hashCode() : 0;
-        result = 31 * result + (discountValue != null ? discountValue.hashCode() : 0);
+        int result = cause != null ? cause.hashCode() : 0;
+        result = 31 * result + (value != null ? value.hashCode() : 0);
         return result;
     }
 
-    public String getDiscountCause() {
-        return discountCause;
+    public String getCause() {
+        return cause;
     }
 
-    public void setDiscountCause(String discountCause) {
-        this.discountCause = discountCause;
+    public void setCause(String cause) {
+        this.cause = cause;
     }
 
-    public Money getDiscountValue() {
-        return discountValue;
+    public Money getValue() {
+        return value;
     }
 
-    public void setDiscountValue(Money discountValue) {
-        this.discountValue = discountValue;
+    public void setValue(Money value) {
+        this.value = value;
     }
 }

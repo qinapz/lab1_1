@@ -4,23 +4,23 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Product {
-    private String productId;
+    private String id;
 
-    private String productName;
+    private String name;
 
-    private Date productSnapshotDate;
+    private Date snapshotDate;
 
-    private String productType;
+    private String type;
 
-    private Money productPrice;
+    private Money price;
 
-    public Product(String productId, Money productPrice, String productName, Date productSnapshotDate,
-                   String productType) {
-        this.productId = productId;
-        this.productPrice = productPrice;
-        this.productName = productName;
-        this.productSnapshotDate = productSnapshotDate;
-        this.productType = productType;    }
+    public Product(String id, Money price, String name, Date snapshotDate,
+                   String type) {
+        this.id = id;
+        this.price = price;
+        this.name = name;
+        this.snapshotDate = snapshotDate;
+        this.type = type;    }
 
     @Override
     public boolean equals(Object o) {
@@ -29,41 +29,41 @@ public class Product {
 
         Product product = (Product) o;
 
-        if (productId != null ? !productId.equals(product.productId) : product.productId != null) return false;
-        if (productName != null ? !productName.equals(product.productName) : product.productName != null) return false;
-        if (productSnapshotDate != null ? !productSnapshotDate.equals(product.productSnapshotDate) : product.productSnapshotDate != null)
+        if (id != null ? !id.equals(product.id) : product.id != null) return false;
+        if (name != null ? !name.equals(product.name) : product.name != null) return false;
+        if (snapshotDate != null ? !snapshotDate.equals(product.snapshotDate) : product.snapshotDate != null)
             return false;
-        if (productType != null ? !productType.equals(product.productType) : product.productType != null) return false;
-        return productPrice != null ? productPrice.equals(product.productPrice) : product.productPrice == null;
+        if (type != null ? !type.equals(product.type) : product.type != null) return false;
+        return price != null ? price.equals(product.price) : product.price == null;
     }
 
     @Override
     public int hashCode() {
-        int result = productId != null ? productId.hashCode() : 0;
-        result = 31 * result + (productName != null ? productName.hashCode() : 0);
-        result = 31 * result + (productSnapshotDate != null ? productSnapshotDate.hashCode() : 0);
-        result = 31 * result + (productType != null ? productType.hashCode() : 0);
-        result = 31 * result + (productPrice != null ? productPrice.hashCode() : 0);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (snapshotDate != null ? snapshotDate.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
         return result;
     }
 
-    public String getProductId() {
-        return productId;
+    public String getId() {
+        return id;
     }
 
-    public BigDecimal getProductPrice() {
-        return productPrice.getValue();
+    public BigDecimal getPrice() {
+        return price.getValue();
     }
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
-    public Date getProductSnapshotDate() {
-        return productSnapshotDate;
+    public Date getSnapshotDate() {
+        return snapshotDate;
     }
 
-    public String getProductType() {
-        return productType;
+    public String getType() {
+        return type;
     }
 }
