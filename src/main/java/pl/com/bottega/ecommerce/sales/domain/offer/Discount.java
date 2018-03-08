@@ -27,4 +27,13 @@ public class Discount {
 		this.discountCause=cause;
 	}
 	
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (discountValue == null ? 0 : discountValue.hashCode());
+        result = prime * result + (discountCause == null ? 0 : discountCause.hashCode());
+        return result;
+    }
+	
 }
