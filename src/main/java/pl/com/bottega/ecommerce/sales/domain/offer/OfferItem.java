@@ -96,29 +96,15 @@ public class OfferItem {
      * @return
      */
     public boolean sameAs(OfferItem other, double delta) {
-        if (productName == null) {
-            if (other.productName != null) {
+    	
+        if (product == null) {
+        	
+            if (other.getProduct() != null) {
                 return false;
             }
-        } else if (!productName.equals(other.productName)) {
-            return false;
-        }
-        if (productPrice == null) {
-            if (other.productPrice != null) {
-                return false;
-            }
-        } else if (!productPrice.equals(other.productPrice)) {
-            return false;
-        }
-        if (productId == null) {
-            if (other.productId != null) {
-                return false;
-            }
-        } else if (!productId.equals(other.productId)) {
-            return false;
-        }
-        if (productType != other.productType) {
-            return false;
+            
+        }else if (!(product==other.getProduct())){
+        	return false;
         }
 
         if (quantity != other.quantity) {
@@ -127,12 +113,12 @@ public class OfferItem {
 
         BigDecimal max;
         BigDecimal min;
-        if (totalCost.compareTo(other.totalCost) > 0) {
-            max = totalCost;
-            min = other.totalCost;
+        if (finalCost.getValue().compareTo(other.getFinalCost().getValue()) > 0) {
+            max = finalCost.getValue();
+            min = other.finalCost.getValue();
         } else {
-            max = other.totalCost;
-            min = totalCost;
+            max = other.finalCost.getValue();
+            min = finalCost.getValue();
         }
 
         BigDecimal difference = max.subtract(min);
