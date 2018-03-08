@@ -36,4 +36,16 @@ public class Money {
        result = prime * result + (currency == null ? 0 : currency.hashCode());
        return result;
 	}
+	
+    @Override
+    public boolean equals(Object object) {
+        if (object == this) {
+            return true;
+        }
+        if (!(object instanceof Money)) {
+           return false;
+        }
+        Money other = (Money) object;
+        return value.equals(other.getValue()) && currency.equals(other.getCurrency());
+    }
 }
