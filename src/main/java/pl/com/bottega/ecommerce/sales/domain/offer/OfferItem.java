@@ -76,52 +76,16 @@ public class OfferItem {
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (!(obj instanceof OfferItem)) {
             return false;
         }
+        
         OfferItem other = (OfferItem) obj;
-        if (discount == null) {
-            if (other.discount != null) {
-                return false;
-            }
-        } else if (!discount.equals(other.discount)) {
-            return false;
-        }
-        if (productName == null) {
-            if (other.productName != null) {
-                return false;
-            }
-        } else if (!productName.equals(other.productName)) {
-            return false;
-        }
-        if (productPrice == null) {
-            if (other.productPrice != null) {
-                return false;
-            }
-        } else if (!productPrice.equals(other.productPrice)) {
-            return false;
-        }
-        if (productId == null) {
-            if (other.productId != null) {
-                return false;
-            }
-        } else if (!productId.equals(other.productId)) {
-            return false;
-        }
-        if (productType != other.productType) {
-            return false;
-        }
-        if (quantity != other.quantity) {
-            return false;
-        }
-        if (totalCost == null) {
-            if (other.totalCost != null) {
-                return false;
-            }
-        } else if (!totalCost.equals(other.totalCost)) {
-            return false;
-        }
-        return true;
+        
+    	return product.equals(other.getProduct()) 
+    			&& discount.equals(other.getDiscount()) 
+    			&& finalCost.equals(other.getFinalCost()) 
+    			&& quantity == other.getQuantity();
     }
 
     /**
