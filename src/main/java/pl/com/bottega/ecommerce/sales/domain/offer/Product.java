@@ -46,4 +46,25 @@ public class Product {
         result = prime * result + (productType == null ? 0 : productType.hashCode());
         return result;
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Product other=(Product)obj;
+        
+        return  productId.equals(other.getProductId()) 
+        		&& productName.equals(other.productName) 
+        		&& productPrice.equals(other.getProductPrice()) 
+        		&& productSnapshotDate.equals(other.getProductSnapshotDate()) 
+        		&& productType.equals(other.getProductType());
+    }
+}
 }
