@@ -46,48 +46,6 @@ public class OfferItem {
         totalCost = product.productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
     }
 
-    /*
-    public String getProductId() {
-        return productId;
-    }
-
-    public BigDecimal getProductPrice() {
-        return productPrice;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public Date getProductSnapshotDate() {
-        return productSnapshotDate;
-    }
-
-    public String getProductType() {
-        return productType;
-    }
-
-    public BigDecimal getTotalCost() {
-        return totalCost;
-    }
-
-    public String getTotalCostCurrency() {
-        return currency;
-    }
-
-    public BigDecimal getDiscount() {
-        return discount;
-    }
-
-    public String getDiscountCause() {
-        return discountCause;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-    */
-
     @Override
     public int hashCode() {
         final int prime = 31;
