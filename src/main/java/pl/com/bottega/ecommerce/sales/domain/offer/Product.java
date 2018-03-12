@@ -3,6 +3,7 @@ package pl.com.bottega.ecommerce.sales.domain.offer;
 import java.util.Date;
 
 public class Product {
+
     private String id;
 
     private Money price;
@@ -13,9 +14,7 @@ public class Product {
 
     private String type;
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
 
     public Money getPrice() {
         return price;
