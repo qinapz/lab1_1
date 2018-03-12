@@ -40,23 +40,30 @@ public class Discount {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Discount other = (Discount) obj;
         if (discount == null) {
-            if (other.discount != null)
+            if (other.discount != null) {
                 return false;
-        } else if (!discount.equals(other.discount))
+            }
+        } else if (!discount.equals(other.discount)) {
             return false;
+        }
         if (discountCause == null) {
-            if (other.discountCause != null)
+            if (other.discountCause != null) {
                 return false;
-        } else if (!discountCause.equals(other.discountCause))
+            }
+        } else if (!discountCause.equals(other.discountCause)) {
             return false;
+        }
         return true;
     }
 

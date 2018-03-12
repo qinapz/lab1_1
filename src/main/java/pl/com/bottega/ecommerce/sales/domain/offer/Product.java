@@ -63,38 +63,51 @@ public class Product {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Product other = (Product) obj;
         if (price == null) {
-            if (other.price != null)
+            if (other.price != null) {
                 return false;
-        } else if (!price.equals(other.price))
+            }
+        } else if (!price.equals(other.price)) {
             return false;
+        }
         if (productId == null) {
-            if (other.productId != null)
+            if (other.productId != null) {
                 return false;
-        } else if (!productId.equals(other.productId))
+            }
+        } else if (!productId.equals(other.productId)) {
             return false;
+        }
         if (productName == null) {
-            if (other.productName != null)
+            if (other.productName != null) {
                 return false;
-        } else if (!productName.equals(other.productName))
+            }
+        } else if (!productName.equals(other.productName)) {
             return false;
+        }
         if (productSnapshotDate == null) {
-            if (other.productSnapshotDate != null)
+            if (other.productSnapshotDate != null) {
                 return false;
-        } else if (!productSnapshotDate.equals(other.productSnapshotDate))
+            }
+        } else if (!productSnapshotDate.equals(other.productSnapshotDate)) {
             return false;
+        }
         if (productType == null) {
-            if (other.productType != null)
+            if (other.productType != null) {
                 return false;
-        } else if (!productType.equals(other.productType))
+            }
+        } else if (!productType.equals(other.productType)) {
             return false;
+        }
         return true;
     }
 }
