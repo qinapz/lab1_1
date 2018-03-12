@@ -17,7 +17,7 @@ public class Discount {
     }
 
     public BigDecimal getDiscountValue() {
-        return discount.getCost();
+        return discount.getValue();
     }
 
     public Money getDiscount() {
@@ -25,7 +25,6 @@ public class Discount {
     }
 
     public Discount(String discountCause, BigDecimal discount) {
-        super();
         this.discountCause = discountCause;
         this.discount = new Money(discount);
     }
@@ -64,7 +63,7 @@ public class Discount {
     public BigDecimal computeDiscount() {
         BigDecimal discountValue = new BigDecimal(0);
         if (discount != null) {
-            discountValue = discountValue.subtract(discount.getCost());
+            discountValue = discountValue.subtract(discount.getValue());
         }
         return discountValue;
     }
