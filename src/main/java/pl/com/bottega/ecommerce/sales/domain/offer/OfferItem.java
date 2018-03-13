@@ -17,41 +17,28 @@ import java.util.Date;
 
 public class OfferItem {
 
-    // product - availible to be completely different structure - not everything within one class
-
-
     private int quantity;
 
     private Product product;
+
+    private Discount discount;
 
     private BigDecimal totalCost;
 
     private String currency;
 
-    // discount - same as above
-    private String discountCause;
-
-    private BigDecimal discount;
-
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
-            String productType, int quantity) {
-        this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
+    public OfferItem(Product product, int quantity) {
+        this(product, quantity,  null);
     }
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
-            String productType, int quantity, BigDecimal discount, String discountCause) {
+    public OfferItem(Product product, int quantity, Discount discount) {
+        this.product = product;
 
+        this.discount = discount;
 
         this.quantity = quantity;
-        this.discount = discount;
-        this.discountCause = discountCause;
 
-        BigDecimal discountValue = new BigDecimal(0);
-        if (discount != null) {
-            discountValue = discountValue.subtract(discount);
-        }
-
-        this.totalCost = productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
+        this.totalCost = product.getProductPrice().getValue().multiply(new BigDecimal(quantity)).subtract(discount);
     }
 
     public BigDecimal getTotalCost() {
@@ -62,12 +49,8 @@ public class OfferItem {
         return currency;
     }
 
-    public BigDecimal getDiscount() {
+    public Discount getDiscount() {
         return discount;
-    }
-
-    public String getDiscountCause() {
-        return discountCause;
     }
 
     public int getQuantity() {
@@ -82,7 +65,6 @@ public class OfferItem {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + (discount == null ? 0 : discount.hashCode());
         result = prime * result + quantity;
         result = prime * result + (totalCost == null ? 0 : totalCost.hashCode());
         return result;
