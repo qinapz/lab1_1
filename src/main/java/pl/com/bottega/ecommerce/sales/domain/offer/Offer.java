@@ -6,7 +6,6 @@ import java.util.List;
 public class Offer {
 
     private List<OfferItem> availableItems = new ArrayList<OfferItem>();
-
     private List<OfferItem> unavailableItems = new ArrayList<OfferItem>();
 
     public Offer(List<OfferItem> availabeItems, List<OfferItem> unavailableItems) {
@@ -38,18 +37,14 @@ public class Offer {
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+		
+        if (!(obj instanceof Offer)) {
             return false;
         }
+		
         Offer other = (Offer) obj;
-        if (availableItems == null) {
-            if (other.availableItems != null) {
-                return false;
-            }
-        } else if (!availableItems.equals(other.availableItems)) {
-            return false;
-        }
-        return true;
+        
+        return availableItems.equals(other.availableItems);
     }
 
     /**
@@ -65,7 +60,7 @@ public class Offer {
         }
 
         for (OfferItem item : availableItems) {
-            OfferItem sameItem = seenOffer.findItem(item.getProductId());
+            OfferItem sameItem = seenOffer.findItem(item.getProduct().getProductId());
             if (sameItem == null) {
                 return false;
             }
@@ -79,7 +74,7 @@ public class Offer {
 
     private OfferItem findItem(String productId) {
         for (OfferItem item : availableItems) {
-            if (item.getProductId().equals(productId)) {
+            if (item.getProduct().getProductId().equals(productId)) {
                 return item;
             }
         }
