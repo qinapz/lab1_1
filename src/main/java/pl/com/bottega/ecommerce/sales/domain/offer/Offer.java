@@ -38,14 +38,16 @@ public class Offer {
         if (obj == null) {
             return false;
         }
+		
         if (getClass() != obj.getClass()) {
             return false;
         }
+		
         Offer other = (Offer) obj;
         if (availableItems == null) {
-            if (other.availableItems != null) {
+            if (other.availableItems != null) 
                 return false;
-            }
+            
         } else if (!availableItems.equals(other.availableItems)) {
             return false;
         }
@@ -65,7 +67,7 @@ public class Offer {
         }
 
         for (OfferItem item : availableItems) {
-            OfferItem sameItem = seenOffer.findItem(item.getProductId());
+            OfferItem sameItem = seenOffer.findItem(item.getProduct().getProductId());
             if (sameItem == null) {
                 return false;
             }
@@ -79,7 +81,7 @@ public class Offer {
 
     private OfferItem findItem(String productId) {
         for (OfferItem item : availableItems) {
-            if (item.getProductId().equals(productId)) {
+            if (item.getProduct().getProductId().equals(productId)) {
                 return item;
             }
         }
@@ -87,3 +89,7 @@ public class Offer {
     }
 
 }
+
+
+//offer item - has product which has price (money), offer item has total value ( money) and includes discount (value in money)
+//Money has currency and value
