@@ -16,7 +16,7 @@ public class Product {
     private String productType;
 
     public Product(String productId, BigDecimal productPrice, String currency, Date productSnapshotDate,
-            String productType) {
+            String productType, String productName) {
         this.productId = productId;
         this.productPrice = new Money(productPrice, currency);
         this.productName = productName;
