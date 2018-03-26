@@ -6,27 +6,31 @@ public class Discount {
 
     private String discountCause;
 
-    private Money discount;
+    private BigDecimal discountValue;
 
-    public Discount(BigDecimal discount, String currency, String discountCause) {
-        this.discount = new Money(discount, currency);
+    public Discount(String discountCause, BigDecimal discount) {
         this.discountCause = discountCause;
+
+        this.discountValue = new BigDecimal(0);
+        if (discount != null) {
+            discountValue = discountValue.subtract(discount);
+        }
     }
 
     public String getDiscountCause() {
         return discountCause;
     }
 
-    public Money getDiscount() {
-        return discount;
+    public BigDecimal getDiscountValue() {
+        return discountValue;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + (discount == null ? 0 : discount.hashCode());
         result = prime * result + (discountCause == null ? 0 : discountCause.hashCode());
+        result = prime * result + (discountValue == null ? 0 : discountValue.hashCode());
         return result;
     }
 
@@ -42,13 +46,6 @@ public class Discount {
             return false;
         }
         Discount other = (Discount) obj;
-        if (discount == null) {
-            if (other.discount != null) {
-                return false;
-            }
-        } else if (!discount.equals(other.discount)) {
-            return false;
-        }
         if (discountCause == null) {
             if (other.discountCause != null) {
                 return false;
@@ -56,6 +53,14 @@ public class Discount {
         } else if (!discountCause.equals(other.discountCause)) {
             return false;
         }
+        if (discountValue == null) {
+            if (other.discountValue != null) {
+                return false;
+            }
+        } else if (!discountValue.equals(other.discountValue)) {
+            return false;
+        }
         return true;
     }
+
 }
